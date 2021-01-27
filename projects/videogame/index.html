@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+       #canvas{
+         border:solid;
+        }
+    </style>
+  </head>
+  <body>
+  <canvas id="canvas" height="500" width="500"></canvas>
+ <script>
+     setInterval(update,50)
+ var Canvas=document.getElementById(canvas)
+ document.addeventListner("keydown",keydownHandler,false)
+ document.addeventListner("keyup",keyupHandler,false)
+ function keydownHandler(e){
+     if(e.key==="Arrowup"){
+         upPressed=true
+     }
+    if(e.key==="Arrowdown"){
+         downPressed=true
+    }
+         if(e.key==="Arrowright"){
+         rightPressed=true
+         }
+         if(e.key==="Arrowleft"){
+         leftPressed=true
+        }
+ }
+ function keyupHandler(e){
+     if(e.key==="Arrowdown"){
+         downPressed=false
+     }
+         if(e.key==="Arrowup"){
+         upPressed=false
+         }
+          if(e.key==="Arrowright"){
+         rightPressed=false
+          }
+        if(e.key==="Arrowleft"){
+         leftPressed=false
+        }
+    }
+var ctx=Canvas.getContext(2,d)
+var postionleft=0
+ var postiontop=0
+ var upPressed=false
+ var downPressed=true
+ var rightPressed=false
+ var leftPressed=false
+ function update() {
+    ctx.clearRect(0,0,canvas.width,canvas.height) 
+    ctx.fillRect(postionleft,postiontop,50,50)
+     postionleft=10+postionleft
+ }
+</script>
+</body>
+</html> 
